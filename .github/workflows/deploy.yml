@@ -38,7 +38,7 @@ jobs:
         run: |
           cd keyguardian-api
           zip -r package_get.zip get_key_status.js
-          zip -r package_post.zip post_key_status.js
+          zip -r package_post.zip post_key_update.js
 
       - name: lambda update
         run: |
