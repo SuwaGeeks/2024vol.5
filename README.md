@@ -14,3 +14,6 @@
 
 # 開発環境ストップ
 `docker-compose stop`
+
+# APIのエンドポイント
+`https://tzv3gjr9k7.execute-api.ap-northeast-1.amazonaws.com`
