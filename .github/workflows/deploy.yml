@@ -36,11 +36,10 @@ jobs:
 
       - name: package lambda
         run: |
-          cd src
           zip -r package_get.zip get_key_status.js
           zip -r package_post.zip post_key_status.js
 
       - name: lambda update
         run: |
-          aws lambda update-function-code --function-name get_key_status --zip-file fileb://src/package_get.zip --publish
-          aws lambda update-function-code --function-name post_key_update --zip-file fileb://src/package_post.zip --publish
+          aws lambda update-function-code --function-name get_key_status --zip-file fileb://package_get.zip --publish
+          aws lambda update-function-code --function-name post_key_update --zip-file fileb://package_post.zip --publish
