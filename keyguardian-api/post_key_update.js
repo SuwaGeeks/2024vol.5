@@ -17,11 +17,7 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const handler = async (event) => {
     // レスポンスデータの作成
-    const item = {
-        labId: 'lab123',
-        status: 'locked',
-        lastUpdated: '2024-05-17T12:34:56Z'
-    };
+    const item = event.body;
 
     // DynamoDBにデータを書き込むためのパラメータの設定
     const params = {
