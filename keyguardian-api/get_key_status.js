@@ -8,7 +8,7 @@
 //     return response;
 //   };
 
-  // あああああ
+
 // AWS SDKのインポート
 const AWS = require('aws-sdk');
 
@@ -17,7 +17,16 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 export const handler = async (event) => {
     // クエリパラメータからlabIdを取得
-    const labId = event.queryStringParameters && event.queryStringParameters.labId;
+    try{
+        const labId = event.queryStringParameters && event.queryStringParameters.labId;
+    } catch(error) {
+        console.error(error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify(error),
+        };
+    }
+    
 
     if (!labId) {
         return {
