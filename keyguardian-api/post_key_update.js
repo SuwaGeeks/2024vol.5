@@ -1,9 +1,46 @@
+// export const handler = async (event) => {
+//     // TODO implement
+//     const response = {
+//       statusCode: 200,
+//       body: JSON.stringify('test3'),
+//     };
+//     return response;
+//   };
+
+
+
+// AWS SDKのインポート
+const AWS = require('aws-sdk');
+
+// DynamoDBの設定
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
+
 export const handler = async (event) => {
-    // TODO implement
-    const response = {
-      statusCode: 200,
-      body: JSON.stringify('test3'),
+    // レスポンスデータの作成
+    const item = {
+        labId: 'lab123',
+        status: 'locked',
+        lastUpdated: '2024-05-17T12:34:56Z'
     };
-    return response;
-  };
-  
+
+    // DynamoDBにデータを書き込むためのパラメータの設定
+    const params = {
+        TableName: 'keyGuadian_DB',
+        Item: item,
+    };
+
+    // DynamoDBにデータを書き込む
+    try {
+        await dynamoDB.put(params).promise();
+        return {
+            statusCode: 200,
+            body: JSON.stringify('Data written to DynamoDB successfully'),
+        };
+    } catch (error) {
+        console.error(error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify('An error occurred while writing data to DynamoDB'),
+        };
+    }
+};

@@ -28,7 +28,7 @@ export const handler = async (event) => {
 
     // DynamoDBからデータを取得
     const params = {
-        TableName: 'TABLE_NAME',
+        TableName: 'keyGuadian_DB',
         Key: {
             'labId': labId,
         },
