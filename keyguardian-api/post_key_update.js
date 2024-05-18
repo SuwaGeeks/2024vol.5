@@ -15,7 +15,7 @@ const AWS = require('aws-sdk');
 // DynamoDBの設定
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
-export const handler = async (event) => {
+const handler = async (event) => {
     // レスポンスデータの作成
     const item = {
         labId: 'lab123',
@@ -44,3 +44,5 @@ export const handler = async (event) => {
         };
     }
 };
+
+module.exports = { handler };
