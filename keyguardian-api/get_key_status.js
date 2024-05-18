@@ -58,7 +58,7 @@ export const handler = async (event) => {
         console.error(error);
         return {
             statusCode: 500,
-            body: JSON.stringify('An error occurred while fetching data from DynamoDB'),
+            body: JSON.stringify(error),
         };
     }
 };
