@@ -1,14 +1,5 @@
-// export const handler = async (event) => {
-//     // TODO implement
-//     const response = {
-//       statusCode: 200,
-//       body: JSON.stringify('test3'),
-//     };
-//     return response;
-//   };
-
-
-
+// 
+const json = require('fs');
 // AWS SDKのインポート
 const AWS = require('aws-sdk');
 
@@ -20,7 +11,7 @@ const handler = async (event) => {
     const item = event.body;
 
     // レスポンスデータをbase64でデコード
-    // const item_decode = json.loads(base64.b64decode(body).decode('utf-8'));
+    const item_decode = json.loads(base64.b64decode(item).decode('utf-8'));
 
     // DynamoDBにデータを書き込むためのパラメータの設定
     const params = {
