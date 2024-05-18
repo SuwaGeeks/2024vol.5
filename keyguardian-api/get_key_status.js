@@ -10,22 +10,14 @@
 
 
 // AWS SDKのインポート
-import { ListTablesCommand, DynamoDBClient } from "@aws-sdk/client-dynamodb";
+const AWS = require('aws-sdk');
 
-const client = new DynamoDBClient({});
+// DynamoDBの設定
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 export const handler = async (event) => {
     // クエリパラメータからlabIdを取得
-    try{
-        const labId = event.queryStringParameters && event.queryStringParameters.labId;
-    } catch(error) {
-            console.error(error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify(error),
-        };
-    }
-    
+    const labId = event.queryStringParameters && event.queryStringParameters.labId;
 
     if (!labId) {
         return {
