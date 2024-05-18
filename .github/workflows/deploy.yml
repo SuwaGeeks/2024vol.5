@@ -37,8 +37,12 @@ jobs:
       - name: package lambda
         run: |
           cd keyguardian-api
-          zip -r ../package_get.zip get_key_status.js
-          zip -r ../package_post.zip post_key_update.js
+          mv get_key_status.js index.js
+          zip -r ../package_get.zip index.js
+          mv index.js get_key_status.js
+          mv post_key_update.js index.js
+          zip -r ../package_post.zip index.js
+          mv index.js post_key_update.js
           cd ..
 
       - name: lambda update
