@@ -8,20 +8,8 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const handler = async (event) => {
     // レスポンスデータの作成
     const item = event.body;
-
-    // レスポンスデータをbase64でデコード
-    let item_decode = Buffer.from(item, 'base64').toString('utf-8');
-    try {
-        item_decode = JSON.parse(item_decode);
-    } catch(error) {
-        console.error(error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify(error),
-        };
-    }
+    item_decode = JSON.parse(item_decode);
     
-
     // DynamoDBにデータを書き込むためのパラメータの設定
     const params = {
         TableName: 'keyGuadian_DB',
