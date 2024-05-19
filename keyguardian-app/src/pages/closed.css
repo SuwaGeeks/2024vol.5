@@ -1,0 +1,43 @@
+.closed{
+    position: relative;
+    height: 40vh;
+    width: 160vh;
+    margin-top: 8vh;
+}
+
+.closed-Image{
+    opacity: 0.7;
+    height: 40vh;
+    width: 160vh;
+    filter: drop-shadow(4px 4px 4px #323232);
+}
+
+.closed-txt{
+    font-size: calc(10px + 10vmin);
+    color: #f3f1f1;
+    filter: drop-shadow(1px 1px 1px #7c7c7c);
+    position: absolute;
+    bottom:-40%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+}
+
+.time-stamp{
+    font-size: calc(5px + 5vmin);
+    color: #f3f1f1;
+    filter: drop-shadow(1px 1px 1px #7c7c7c);
+    position: absolute;
+    bottom:-10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.time-txt{
+    font-size: calc(5px + 5vmin);
+    color: #f3f1f1;
+    filter: drop-shadow(1px 1px 1px #7c7c7c);
+    position: absolute;
+    bottom:-10%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+}
