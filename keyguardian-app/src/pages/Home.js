@@ -7,6 +7,22 @@ import { Opening } from './opening.js'
 import { Closed } from './closed.js'
 
 const Home = () => {
+
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch("https://tzv3gjr9k7.execute-api.ap-northeast-1.amazonaws.com/key/status?labId=ichikawa");
+            const data = await response.json();
+
+            if (data.status === "locked") {
+                setIsOpened(false);
+            } else {
+                setIsOpened(true);
+            }
+        }
+        fetchData();
+    }, []);
+
     const [isOpened, setIsOpened] = useState(false);
     const url = useLocation().pathname;
     const timestamp = new Date("2024-05-17T12:34:56Z");
