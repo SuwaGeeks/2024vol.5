@@ -34,7 +34,7 @@ const handler = async (event) => {
         console.error('Error:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify('An error occurred while writing data to DynamoDB'),
+            body: JSON.stringify(error),
         };
     }
 };
