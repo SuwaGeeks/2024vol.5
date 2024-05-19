@@ -10,8 +10,8 @@ const handler = async (event) => {
     const item = event.body;
 
     // レスポンスデータをbase64でデコード
-    let item_decode = Buffer.from(item, 'base64').toString('utf-8');
-    // item_decode = JSON.parse(item_decode);
+    let item_decode = atob(item);
+    item_decode = JSON.parse(item_decode);
 
     // DynamoDBにデータを書き込むためのパラメータの設定
     const params = {
