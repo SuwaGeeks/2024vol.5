@@ -16,7 +16,7 @@ const handler = async (event) => {
     // DynamoDBにデータを書き込むためのパラメータの設定
     const params = {
         TableName: 'keyGuadian_DB',
-        Item: item,
+        Item: item_decode,
     };
 
     // DynamoDBにデータを書き込む
