@@ -8,7 +8,7 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const handler = async (event) => {
     // レスポンスデータの作成
     const item = event.body;
-    item_decode = JSON.parse(item);
+    let item_decode = JSON.parse(item);
 
     // DynamoDBにデータを書き込むためのパラメータの設定
     const params = {
