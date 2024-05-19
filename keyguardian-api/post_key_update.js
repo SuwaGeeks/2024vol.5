@@ -1,4 +1,3 @@
-
 // AWS SDKのインポート
 const AWS = require('aws-sdk');
 

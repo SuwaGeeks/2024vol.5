@@ -14,7 +14,6 @@ const AWS = require('aws-sdk');
 
 // DynamoDBの設定
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
-// AWS.config.update({ region: "ap-northeast-1" });
 
 const handler = async (event) => {
     // クエリパラメータからlabIdを取得
