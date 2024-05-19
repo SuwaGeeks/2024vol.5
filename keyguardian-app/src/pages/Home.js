@@ -1,33 +1,23 @@
 import React from "react";
-import styles from "./Home.css"
-import key from './key.png'
-import opening from './opening.png'
-
-// import { useState } from "react"
-
-
-
+import { useState, useEffect } from "react";
 
 const Home = () => {
     const [isOpened, setIsOpened] = useState(false);
 
-    const Home = () => {
-        const [isOpened, setIsOpened] = useState(false);
-    
-        useEffect(() => {
-            async function fetchData() {
-                const response = await fetch("https://tzv3gjr9k7.execute-api.ap-northeast-1.amazonaws.com/key/status?labId=ichikawa");
-                const data = await response.json();
-    
-                if (data.status === "locked") {
-                    setIsOpened(false);
-                } else {
-                    setIsOpened(true);
-                }
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch("https://tzv3gjr9k7.execute-api.ap-northeast-1.amazonaws.com/key/status?labId=ichikawa");
+            const data = await response.json();
+
+            if (data.status === "locked") {
+                setIsOpened(false);
+            } else {
+                setIsOpened(true);
             }
-            fetchData();
-        }, []);
-    }
+        }
+        fetchData();
+    }, []);
+
 
     return (
         <div>
@@ -46,7 +36,7 @@ const Home = () => {
                     </div>
                 </main>
         </div>
-    )
+    )   
 }
 
 export default Home;
